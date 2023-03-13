@@ -156,13 +156,7 @@ resource "aws_security_group" "datalayer-sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  ingress{
-    description     ="from NFS"
-    from_port       = 2049
-    to_port         = 2049
-    protocol        = "tcp"
-    security_groups = [aws_security_group.webserver-sg.id]
-  }
+
   ingress{
     description     ="from mysql webserver"
     from_port       = 3306
